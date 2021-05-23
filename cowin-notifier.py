@@ -4,7 +4,7 @@ from datetime import datetime,timedelta
 from plyer import notification
 
 user_age = 55
-pincodes=["110001","782410"]
+pincodes=["782411","782410"]
 num_days = 6
 
 print("Starting Search for vaccine slots")
@@ -61,6 +61,14 @@ while(True) :
 
     if availbleCenters==0:
         print("No availble slots in these areas...")
+        notification.notify(
+            title="No Vaccine Slots are available",
+            # the body of the notification
+            message="Sorry, there is no available slot in your area",
+            # You can add a icon here also in the .ico format
+            # the notification stays for 5sec
+            timeout=5
+        )
     else:
         print(f"Hurray. Found {availbleCenters} results...")
     #The process will resume after 300 seconds. That means we will make the APi call again after 5 minutes.
